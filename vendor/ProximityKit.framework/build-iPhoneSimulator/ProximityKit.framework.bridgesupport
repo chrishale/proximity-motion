@@ -1,0 +1,224 @@
+<?xml version='1.0'?>
+<signatures version='1.0'>
+<enum name='PKCircleType' value='0'/>
+<enum name='PKIBeaconType' value='1'/>
+<enum name='PKRegionStateInside' value='1'/>
+<enum name='PKRegionStateOutside' value='2'/>
+<enum name='PKRegionStateUnknown' value='0'/>
+<class name='NSObject'>
+<method selector='proximityKit:didDetermineState:forRegion:'>
+<arg declared_type='PKManager*' index='0' name='manager' type='@'/>
+<arg declared_type='PKRegionState' index='1' name='state' type='i' type64='q'/>
+<arg declared_type='PKRegion*' index='2' name='region' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='proximityKit:didEnter:'>
+<arg declared_type='PKManager*' index='0' name='manager' type='@'/>
+<arg declared_type='PKRegion*' index='1' name='region' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='proximityKit:didExit:'>
+<arg declared_type='PKManager*' index='0' name='manager' type='@'/>
+<arg declared_type='PKRegion*' index='1' name='region' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='proximityKit:didFailWithError:'>
+<arg declared_type='PKManager*' index='0' name='manager' type='@'/>
+<arg declared_type='NSError*' index='1' name='error' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='proximityKit:didRangeBeacons:inRegion:'>
+<arg declared_type='PKManager*' index='0' name='manager' type='@'/>
+<arg declared_type='NSArray*' index='1' name='beacons' type='@'/>
+<arg declared_type='PKRegion*' index='2' name='region' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='proximityKitDidSync:'>
+<arg declared_type='PKManager*' index='0' name='manager' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='PKCircle'>
+<method selector='initWith:'>
+<arg declared_type='NSDictionary*' index='0' name='dict' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='latitude'>
+<retval declared_type='float' type='f'/>
+</method>
+<method selector='longitude'>
+<retval declared_type='float' type='f'/>
+</method>
+<method selector='radius'>
+<retval declared_type='float' type='f'/>
+</method>
+<method selector='region'>
+<retval declared_type='CLRegion*' type='@'/>
+</method>
+</class>
+<class name='PKIBeacon'>
+<method selector='initWith:'>
+<arg declared_type='NSDictionary*' index='0' name='dict' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='major'>
+<retval declared_type='NSInteger' type='i' type64='q'/>
+</method>
+<method selector='minor'>
+<retval declared_type='NSInteger' type='i' type64='q'/>
+</method>
+<method selector='region'>
+<retval declared_type='CLBeaconRegion*' type='@'/>
+</method>
+<method selector='uuid'>
+<retval declared_type='NSUUID*' type='@'/>
+</method>
+</class>
+<class name='PKKit'>
+<method selector='getRegionForIdentifier:'>
+<arg declared_type='NSString*' index='0' name='identifier' type='@'/>
+<retval declared_type='PKRegion*' type='@'/>
+</method>
+<method selector='iBeacons'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='id'>
+<retval declared_type='NSInteger' type='i' type64='q'/>
+</method>
+<method selector='initWith:'>
+<arg declared_type='NSDictionary*' index='0' name='dict' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='map'>
+<retval declared_type='PKMap*' type='@'/>
+</method>
+<method selector='name'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='setIBeacons:'>
+<arg declared_type='NSArray*' index='0' name='iBeacons' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setId:'>
+<arg declared_type='NSInteger' index='0' name='id' type='i' type64='q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setMap:'>
+<arg declared_type='PKMap*' index='0' name='map' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setName:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setUrl:'>
+<arg declared_type='NSString*' index='0' name='url' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='url'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='PKManager'>
+<method selector='delegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='getRegionForIdentifier:'>
+<arg declared_type='NSString*' index='0' name='identifier' type='@'/>
+<retval declared_type='PKRegion*' type='@'/>
+</method>
+<method class_method='true' selector='getVersion'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='locationManager'>
+<retval declared_type='CLLocationManager*' type='@'/>
+</method>
+<method selector='locationManagerDelegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='managerWithDelegate:'>
+<arg declared_type='id' index='0' name='delegate' type='@'/>
+<retval declared_type='PKManager*' type='@'/>
+</method>
+<method selector='setDelegate:'>
+<arg declared_type='id' index='0' name='delegate' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setLocationManagerDelegate:'>
+<arg declared_type='id' index='0' name='locationManagerDelegate' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='start'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='startRangingIBeacons'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='stopRangingIBeacons'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='sync'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='syncWithCompletionHandler:'>
+<arg declared_type='void (^)(UIBackgroundFetchResult)' function_pointer='true' index='0' name='completionHandler' type='@?'>
+<arg declared_type='UIBackgroundFetchResult' type='I' type64='Q'/>
+<retval declared_type='void' type='v'/>
+</arg>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='PKMap'>
+<method selector='initWith:'>
+<arg declared_type='NSDictionary*' index='0' name='dict' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='overlays'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+</class>
+<class name='PKRegion'>
+<method selector='attributes'>
+<retval declared_type='NSDictionary*' type='@'/>
+</method>
+<method selector='identifier'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='name'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<informal_protocol name='PKManagerDelegate'>
+<method selector='proximityKit:didDetermineState:forRegion:' type='v20@0:4@8i12@16' type64='v40@0:8@16q24@32'>
+<arg declared_type='PKManager*' index='0' name='manager' type='@'/>
+<arg declared_type='PKRegionState' index='1' name='state' type='i' type64='q'/>
+<arg declared_type='PKRegion*' index='2' name='region' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='proximityKit:didEnter:' type='v16@0:4@8@12' type64='v32@0:8@16@24'>
+<arg declared_type='PKManager*' index='0' name='manager' type='@'/>
+<arg declared_type='PKRegion*' index='1' name='region' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='proximityKit:didExit:' type='v16@0:4@8@12' type64='v32@0:8@16@24'>
+<arg declared_type='PKManager*' index='0' name='manager' type='@'/>
+<arg declared_type='PKRegion*' index='1' name='region' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='proximityKit:didFailWithError:' type='v16@0:4@8@12' type64='v32@0:8@16@24'>
+<arg declared_type='PKManager*' index='0' name='manager' type='@'/>
+<arg declared_type='NSError*' index='1' name='error' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='proximityKit:didRangeBeacons:inRegion:' type='v20@0:4@8@12@16' type64='v40@0:8@16@24@32'>
+<arg declared_type='PKManager*' index='0' name='manager' type='@'/>
+<arg declared_type='NSArray*' index='1' name='beacons' type='@'/>
+<arg declared_type='PKRegion*' index='2' name='region' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='proximityKitDidSync:' type='v12@0:4@8' type64='v24@0:8@16'>
+<arg declared_type='PKManager*' index='0' name='manager' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+</informal_protocol>
+</signatures>
